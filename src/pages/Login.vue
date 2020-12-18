@@ -22,11 +22,11 @@
       <div class="main">
         <div>
             <p>车险业务代理系统</p>
-            <input type="text" placeholder="用户名" >
+            <input type="text" placeholder="用户名" v-model="username">
             <br/>
-            <input type="password" placeholder="密码" >
+            <input type="password" placeholder="密码" v-model="userpass" >
             <br/>
-            <input type="button" value="登录" >
+            <input type="button" value="登录" @click="logining" >
         </div>
        </div>
         
@@ -40,9 +40,24 @@
         components:{
             
         },
-       methods: {
-           
+       
+       data() {
+           return {
+               username:'',
+               userpass:''
+           }
        },
+       methods: {
+           logining:function(){
+               if(this.username=="油炸小排骨"&&this.userpass=="123456"){
+                   this.$router.push('/personnel')
+               }
+               else {
+                   this.$router.push('/');
+               }
+           }
+       },
+    
     }
 </script>
 <style scoped>
